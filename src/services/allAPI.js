@@ -55,3 +55,10 @@ export const getAVideoAPI=async(videoId)=>{
 export const updateCategoryAPI=async(categoryId,updatedCategoryDetails)=>{
     return await commonAPI("PUT",`${SERVER_URL}/categories/${categoryId}`,updatedCategoryDetails)
 }
+
+//get single category api
+
+export const getSingleCategoryAPI = async (categoryId) =>{
+    return await commonAPI("GET",`${SERVER_URL}/categories/${categoryId}`,"")
+
+}

@@ -5,7 +5,7 @@ import { all } from 'axios';
 import Videocard from './Videocard';
 
 
-function Category() {
+function Category(removeCategoryVideoResponse) {
   const [allCategories,setAllCategories]=useState([])
   const [categoryName,setCategoryName]=useState("")
   const [show, setShow] = useState(false);
@@ -34,7 +34,7 @@ function Category() {
       console.log(allCategories);
       useEffect(()=>{
         getAllCategories()
-      },[])
+      },[removeCategoryVideoResponse])
 
       const handleRemoveCategory=async(cId)=>{
         await removeCategoryAPI(cId)
@@ -73,7 +73,7 @@ function Category() {
   <> 
   <div className='d-flex justify-content-around'>
     <h3 style={{height:'50px'}}>All Categories</h3>
-    <button onClick={handleShow} className='btn btn-primary'>Add New Category</button>
+    <button style={{height:'60px'}} onClick={handleShow} className='btn btn-primary'>Add New Category</button>
   </div>
   <div className='container-fluid mt-3'>
     {
